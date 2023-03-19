@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/cards.css" rel="stylesheet" type="text/css" />
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div class="cards">
+        {% for card in cards %}
+        <div class="card">
+            <a href="{{ card.url }}">{{ card.name }}</a>
+            <img src="{{ card.cover }}" />
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
