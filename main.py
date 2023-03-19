@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect
 
 from beauty import get_cards, get_tags, get_images
 
-app = Flask(__name__, static_folder='/')
+app = Flask(__name__, static_folder='/',)
 
 
 @app.route('/')
@@ -33,4 +33,4 @@ def list_images(tag, card):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
