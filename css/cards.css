@@ -8,9 +8,12 @@
 }
 
 .card {
-    border: 1px solid black;
-    border-radius: 15px;
     margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .25);
+    background-color: aquamarine;
 
     display: flex;
     flex-direction: column;
@@ -23,12 +26,9 @@
     font-size: large;
     word-break: keep-all;
     text-align: center;
-    margin: 5px;
 }
 
 .card img {
-    width: 360px;
-    margin: 5px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    width: 256px;
+    padding: 15px;
 }
