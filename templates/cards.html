@@ -6,17 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/cards.css" rel="stylesheet" type="text/css" />
+    <link href="/css/common.css" rel="stylesheet" type="text/css" />
     <title>{{ title }}</title>
 </head>
 
 <body>
     <div class="cards">
         {% for card in cards %}
-        <div class="card">
+        <div class="card box">
             <a href="{{ card.url }}">{{ card.name }}</a>
             <img src="{{ card.cover }}" />
         </div>
         {% endfor %}
+    </div>
+
+    <div class="nav box">
+        {% if prev %}
+        <a href="{{ prev }}">上一页</a>
+        {% endif %}
+
+        {% if next %}
+        <a href="{{ next }}">下一页</a>
+        {% endif %}
+
     </div>
 </body>
 

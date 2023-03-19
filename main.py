@@ -15,10 +15,15 @@ def list_tags():
     return render_template('tags.html', title='Tags', tags=get_tags())
 
 
-@app.route('/cards/<tag>')
-def list_cards(tag):
-    title, cards = get_cards(tag)
-    return render_template('cards.html', title=title, cards=cards)
+@app.route('/cards/<tag>/<page>')
+def list_cards(tag, page):
+    page = int(page)
+    assert page > 0
+    title, count, cards = get_cards(tag, page)
+    return render_template('cards.html', title=title, cards=cards,
+                           page=page,
+                           next=f'/cards/{tag}/{page + 1}' if page < count else None,
+                           prev=f'/cards/{tag}/{page - 1}' if page != 1 else None)
 
 
 @app.route('/images/<tag>/<card>')

@@ -28,8 +28,9 @@ def get_tags() -> list[Tag]:
     return tags
 
 
-def get_cards(tag: typing.Any) -> tuple[str, list[Card]]:
-    html = fetch_html(f'https://www.hh12345.cc/ku/{tag}/')
+def get_cards(tag: typing.Any, page: typing.Any) -> tuple[str, int, list[Card]]:
+    html = fetch_html(
+        f'https://www.hh12345.cc/ku/{tag}/list_{tag}_{page}.html')
     name = html.xpath('//*[@id="size"]/div/h2/text()')[0]
 
     cards: list[Card] = []
@@ -42,4 +43,4 @@ def get_cards(tag: typing.Any) -> tuple[str, list[Card]]:
                         .removesuffix('.html')
                         .split('/')[-2:]))
         )
-    return name, cards
+    return name, int(html.xpath('//span[@class="pageinfo"]/strong/text()')[0]), cards
