@@ -1,0 +1,18 @@
+.images {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    margin: 10px;
+}
+
+.image img {
+    padding: 10px;
+    border-radius: 15px;
+    width: 320px;
+}

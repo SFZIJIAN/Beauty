@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 
-from beauty import get_cards, get_tags
+from beauty import get_cards, get_tags, get_images
 
 app = Flask(__name__, static_folder='/')
 
@@ -28,7 +28,8 @@ def list_cards(tag, page):
 
 @app.route('/images/<tag>/<card>')
 def list_images(tag, card):
-    return f'Tag={tag}, Card={card}'
+    title, images = get_images(tag, card)
+    return render_template('images.html', title=title, images=images)
 
 
 if __name__ == '__main__':
